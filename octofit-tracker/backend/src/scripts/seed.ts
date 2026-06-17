@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
-import { ActivityModel } from '../models/activity';
-import { LeaderboardModel } from '../models/leaderboard';
-import { TeamModel } from '../models/team';
-import { UserModel } from '../models/user';
-import { WorkoutModel } from '../models/workout';
+import { ActivityModel } from '../models/activity.js';
+import { LeaderboardModel } from '../models/leaderboard.js';
+import { TeamModel } from '../models/team.js';
+import { UserModel } from '../models/user.js';
+import { WorkoutModel } from '../models/workout.js';
 
 const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit_db';
 
