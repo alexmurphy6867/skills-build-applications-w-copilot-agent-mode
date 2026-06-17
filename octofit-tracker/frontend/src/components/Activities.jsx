@@ -1,4 +1,3 @@
-import React from 'react';
 import DataPage from './DataPage.jsx';
 
 export default function Activities({ apiBase }) {
