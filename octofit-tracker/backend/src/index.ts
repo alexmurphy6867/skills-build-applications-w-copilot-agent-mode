@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express from 'express';
-import { mongoUri } from './database';
+import { mongoUri } from './config/database';
 import { ActivityModel } from './models/activity';
 import { LeaderboardModel } from './models/leaderboard';
 import { TeamModel } from './models/team';
