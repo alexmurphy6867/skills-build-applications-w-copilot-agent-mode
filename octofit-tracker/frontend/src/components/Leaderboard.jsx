@@ -1,10 +1,16 @@
 import DataPage from './DataPage.jsx';
 
-export default function Leaderboard({ apiBase }) {
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME;
+const apiHost = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev`
+    : 'http://localhost:8000';
+const endpoint = `${apiHost}/api/leaderboard/`;
+
+export default function Leaderboard() {
     return (
         <DataPage
             title="Leaderboard"
-            endpoint={`${apiBase}/api/leaderboard/`}
+            endpoint={endpoint}
             rowKey={(entry) => entry.id || entry._id || JSON.stringify(entry)}
             renderItem={(entry) => (
                 <div>

@@ -1,10 +1,16 @@
 import DataPage from './DataPage.jsx';
 
-export default function Users({ apiBase }) {
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME;
+const apiHost = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev`
+    : 'http://localhost:8000';
+const endpoint = `${apiHost}/api/users/`;
+
+export default function Users() {
     return (
         <DataPage
             title="Users"
-            endpoint={`${apiBase}/api/users/`}
+            endpoint={endpoint}
             rowKey={(user) => user.id || user._id || JSON.stringify(user)}
             renderItem={(user) => (
                 <div>

@@ -1,10 +1,16 @@
 import DataPage from './DataPage.jsx';
 
-export default function Activities({ apiBase }) {
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME;
+const apiHost = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev`
+    : 'http://localhost:8000';
+const endpoint = `${apiHost}/api/activities/`;
+
+export default function Activities() {
     return (
         <DataPage
             title="Activities"
-            endpoint={`${apiBase}/api/activities/`}
+            endpoint={endpoint}
             rowKey={(activity) => activity.id || activity._id || JSON.stringify(activity)}
             renderItem={(activity) => (
                 <div>

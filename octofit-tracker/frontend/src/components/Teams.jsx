@@ -1,10 +1,16 @@
 import DataPage from './DataPage.jsx';
 
-export default function Teams({ apiBase }) {
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME;
+const apiHost = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev`
+    : 'http://localhost:8000';
+const endpoint = `${apiHost}/api/teams/`;
+
+export default function Teams() {
     return (
         <DataPage
             title="Teams"
-            endpoint={`${apiBase}/api/teams/`}
+            endpoint={endpoint}
             rowKey={(team) => team.id || team._id || JSON.stringify(team)}
             renderItem={(team) => (
                 <div>

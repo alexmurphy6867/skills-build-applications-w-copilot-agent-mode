@@ -1,10 +1,16 @@
 import DataPage from './DataPage.jsx';
 
-export default function Workouts({ apiBase }) {
+const codespaceName = import.meta.env.VITE_CODESPACE_NAME;
+const apiHost = codespaceName
+    ? `https://${codespaceName}-8000.app.github.dev`
+    : 'http://localhost:8000';
+const endpoint = `${apiHost}/api/workouts/`;
+
+export default function Workouts() {
     return (
         <DataPage
             title="Workouts"
-            endpoint={`${apiBase}/api/workouts/`}
+            endpoint={endpoint}
             rowKey={(workout) => workout.id || workout._id || JSON.stringify(workout)}
             renderItem={(workout) => (
                 <div>
