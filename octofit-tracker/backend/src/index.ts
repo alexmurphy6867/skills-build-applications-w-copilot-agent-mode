@@ -1,6 +1,6 @@
 import cors from 'cors';
 import express from 'express';
-import mongoose from 'mongoose';
+import { mongoUri } from './database';
 import { ActivityModel } from './models/activity';
 import { LeaderboardModel } from './models/leaderboard';
 import { TeamModel } from './models/team';
@@ -14,7 +14,6 @@ const codespaceName = process.env.CODESPACE_NAME;
 const apiUrl = codespaceName
     ? `https://${codespaceName}-8000.githubpreview.dev`
     : `http://localhost:${port}`;
-const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit_db';
 
 app.use(cors());
 app.use(express.json());
